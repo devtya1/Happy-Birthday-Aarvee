@@ -35,6 +35,7 @@ function App() {
   const [selectedImage, setSelectedImage] = useState(null);
 
   const audioRef = useRef(null);
+  const memoriesAudioRef = useRef(null);
 
   const albumImages = [
   img1, img2, img3, img4, img5,
@@ -124,7 +125,19 @@ const rewind10 = () => {
       }
     }, 40);
   }
-}, [openLetter]);
+}, [openLetter, letterText]);
+
+useEffect(() => {
+  if (page === 4) {
+    memoriesAudioRef.current = new Audio("/song.mp3");
+
+    memoriesAudioRef.current.currentTime = 107; // 1 min 47 sec
+    memoriesAudioRef.current.play();
+
+    // optional: if you want it to continue normally
+    memoriesAudioRef.current.loop = false;
+  }
+}, [page]);
 
   return (
     <div className="app">
@@ -282,7 +295,13 @@ const rewind10 = () => {
       <button
   className="next-btn"
   style={{ marginTop: "25px" }}
-  onClick={() => setPage(5)}
+  onClick={() => {
+    if (memoriesAudioRef.current) {
+      memoriesAudioRef.current.pause();
+      memoriesAudioRef.current.currentTime = 0;
+    }
+    setPage(5);
+  }}
 >
   One Last Thing 💖
 </button>
