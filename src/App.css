@@ -1,0 +1,548 @@
+body {
+  margin: 0;
+  font-family: "Comic Sans MS", cursive;
+  background: #ffe6f0;
+  overflow-x: hidden;  /* only hide sideways scroll */
+}
+
+.app {
+  text-align: center;
+}
+
+.intro {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* 🎭 REAL CURTAINS */
+.curtain {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/red-velvet.png");
+  background-size: cover;
+  transition: transform 2s ease-in-out;
+  z-index: 2;
+}
+
+.left {
+  left: 0;
+}
+
+.right {
+  right: 0;
+}
+
+.open-left {
+  transform: translateX(-100%);
+}
+
+.open-right {
+  transform: translateX(100%);
+}
+
+/* 💖 BUTTON */
+.click-btn {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px 50px;
+  font-size: 24px;
+  background: hotpink;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  cursor: pointer;
+  z-index: 3;
+  box-shadow: 0 0 20px pink;
+  transition: 0.3s;
+}
+
+.click-btn:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* 🎂 CENTER CONTENT */
+.center-content {
+  margin-top: 150px;
+  animation: fadeIn 2s ease-in;
+}
+
+.profile-pic {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 6px solid white;
+  object-fit: cover;
+  box-shadow: 0 0 30px hotpink;
+  transform: rotate(-90deg);
+}
+
+h1 {
+  color: deeppink;
+  margin-top: 20px;
+  font-size: 40px;
+}
+
+/* 💌 NEXT BUTTON */
+.next-btn {
+  margin-top: 40px;
+  padding: 15px 35px;
+  background: deeppink;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 20px;
+}
+/* 💌 LETTER PAGE */
+.letter-page {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #ffe6f0;
+  perspective: 1000px;
+}
+
+/* 💌 BIG ENVELOPE WRAPPER */
+.envelope-wrapper {
+  width: 350px;
+  height: 230px;
+  position: relative;
+  cursor: pointer;
+  transition: transform 1.2s;
+  transform-style: preserve-3d;
+}
+
+/* FLIP ANIMATION */
+.flipped {
+  transform: rotateY(180deg);
+}
+
+/* 💌 ENVELOPE BODY */
+.envelope {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: #ffb6d9;
+  border-radius: 10px;
+  box-shadow: 0 15px 40px rgba(255, 105, 180, 0.4);
+}
+
+/* FRONT PART */
+.front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #ffc1e3;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+/* FLAP */
+.flap {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 50%;
+  background: #ff8fcf;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top;
+  transition: transform 1s ease;
+  z-index: 2;
+}
+
+.flipped .flap {
+  transform: rotateX(-180deg);
+}
+
+/* 💖 LETTER */
+.letter {
+  position: absolute;
+  width: 70%;
+  max-width: 600px;
+  height: 70%;
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 0 50px pink;
+  overflow-y: auto;
+
+  bottom: -100%;
+  opacity: 0;
+  transition: all 2.5s ease;
+}
+
+/* SLOW RISE EFFECT */
+.show-letter {
+  bottom: 15%;
+  opacity: 1;
+}
+
+pre {
+  white-space: pre-wrap;
+  font-size: 24px;
+  color: #d63384;
+  font-family: 'Dancing Script', cursive;
+  line-height: 1.8;
+}
+/* ✨ FADE */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* 🎧 AUDIO PAGE */
+.audio-page {
+  height: 100vh;
+  background: linear-gradient(135deg, #ffd6eb, #ffc2f0);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 2s ease;
+}
+
+.audio-page h1 {
+  font-family: 'Pacifico', cursive;
+  color: #d63384;
+  font-size: 40px;
+  margin-bottom: 40px;
+}
+
+.audio-card {
+  background: white;
+  padding: 40px;
+  border-radius: 25px;
+  box-shadow: 0 0 50px rgba(255, 105, 180, 0.4);
+  text-align: center;
+  width: 400px;
+}
+
+.audio-card p {
+  font-family: 'Dancing Script', cursive;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #ff4da6;
+}
+
+.audio-player {
+  width: 100%;
+  border-radius: 15px;
+}
+
+/* 🎧 AUDIO PAGE */
+.audio-page {
+  height: 100vh;
+  background: linear-gradient(135deg, #ffd6eb, #ffc2f0);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.audio-page h1 {
+  font-family: 'Pacifico', cursive;
+  color: #d63384;
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+.audio-card {
+  background: white;
+  padding: 40px;
+  border-radius: 25px;
+  box-shadow: 0 0 50px rgba(255, 105, 180, 0.4);
+  text-align: center;
+  width: 500px;
+}
+
+/* 🎵 VISUALIZER */
+.visualizer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 80px;
+  margin-bottom: 30px;
+  gap: 4px;
+}
+
+.bar {
+  width: 6px;
+  height: 20px;
+  background: linear-gradient(to top, #ff4da6, #ff99cc);
+  border-radius: 5px;
+}
+
+.bar.animate {
+  animation: bounce 1s infinite ease-in-out;
+}
+
+@keyframes bounce {
+  0% { height: 20px; }
+  50% { height: 70px; }
+  100% { height: 20px; }
+}
+
+/* 🎛 CONTROLS */
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.controls button {
+  background: #ff4da6;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(255, 105, 180, 0.4);
+  transition: 0.3s;
+}
+
+.controls button:hover {
+  background: #e60073;
+  transform: scale(1.1);
+}
+
+/* 📸 ALBUM PAGE */
+.album-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ffe0f5, #ffc2f0);
+  padding: 30px 15px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.album-page h1 {
+  font-family: 'Pacifico', cursive;
+  color: #d63384;
+  margin-bottom: 25px;
+  font-size: clamp(20px, 5vw, 32px);
+}
+
+/* 🌸 RESPONSIVE COLLAGE (MAGIC PART) */
+.collage {
+  display: grid;
+  gap: 15px;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+/* 📱 SMALL PHONES (like older Android / iPhone SE) */
+@media (max-width: 400px) {
+  .collage {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-card {
+    height: 250px;
+  }
+}
+
+/* 📱 NORMAL PHONES */
+@media (min-width: 401px) and (max-width: 768px) {
+  .collage {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .photo-card {
+    height: 220px;
+  }
+}
+
+/* 📱 LARGE PHONES / FOLD CLOSED */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .collage {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .photo-card {
+    height: 260px;
+  }
+}
+
+/* 📱 TABLET / FOLD OPEN */
+@media (min-width: 1025px) {
+  .collage {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .photo-card {
+    height: 280px;
+  }
+}
+
+/* 💖 PHOTO CARD */
+.photo-card {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(255, 105, 180, 0.4);
+  transition: 0.4s ease;
+  cursor: pointer;
+}
+
+.photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-card:hover {
+  transform: scale(1.04);
+}
+
+/* PAGINATION */
+.album-controls {
+  margin-top: 10px;
+}
+
+.album-controls button {
+  background: #ff4da6;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 25px;
+  margin: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.album-controls button:hover {
+  background: #e60073;
+  transform: scale(1.1);
+}
+
+/* 💗 FULLSCREEN IMAGE MODAL */
+.image-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 192, 203, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease;
+  z-index: 999;
+  padding: 20px;
+}
+
+.image-modal img {
+  max-width: 100%;
+  max-height: 85vh;
+  border-radius: 20px;
+  box-shadow: 0 0 40px hotpink;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  background: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  box-shadow: 0 0 20px pink;
+  transition: 0.3s;
+}
+
+.close-btn:hover {
+  transform: scale(1.2);
+}
+
+/* 💖 FINAL PAGE */
+.final-page {
+  height: 100vh;
+  background: linear-gradient(135deg, #ffb6d9, #ffc2f0);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+}
+
+/* Floating Hearts Background */
+.hearts-bg::before {
+  content: "💗 💖 💕 💞 💓 💘";
+  position: absolute;
+  font-size: 40px;
+  width: 100%;
+  animation: floatHearts 15s linear infinite;
+  opacity: 0.2;
+}
+
+@keyframes floatHearts {
+  0% {
+    transform: translateY(100vh);
+  }
+  100% {
+    transform: translateY(-100vh);
+  }
+}
+
+/* Main Text */
+.final-text {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(28px, 6vw, 45px);
+  color: white;
+  animation: fadeSlide 2s ease forwards;
+}
+
+/* Big Princess Text */
+.big-message {
+  font-family: 'Pacifico', cursive;
+  font-size: clamp(32px, 7vw, 55px);
+  color: #fff;
+  margin-top: 15px;
+  text-shadow: 0 0 20px hotpink;
+  animation: glowIn 3s ease forwards;
+}
+
+/* Sub Message */
+.final-sub {
+  margin-top: 25px;
+  max-width: 600px;
+  font-size: clamp(16px, 4vw, 22px);
+  color: white;
+  line-height: 1.8;
+  font-family: 'Dancing Script', cursive;
+  animation: fadeIn 4s ease forwards;
+}
+
+/* Animations */
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glowIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
